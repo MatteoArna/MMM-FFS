@@ -1,65 +1,67 @@
-.train-wrapper {
-    font-family: "Roboto", Arial, sans-serif;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Sfondo trasparente scuro */
-    border-radius: 10px;
-    /* Angoli arrotondati */
-    color: #ffffff;
-    /* Testo bianco */
-}
-
-.train-info {
-    margin-bottom: 15px;
-    background-color: rgba(50, 50, 50, 0.8);
-    /* Scuro ma con trasparenza per uniformarsi allo sfondo */
-    border-radius: 8px;
-    /* Angoli arrotondati */
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* Ombra per effetto flottante */
-}
-
-.train-header {
-    font-size: 1.5em;
+/* Titolo del percorso (da dove a dove va il treno) */
+.train-title {
+    font-size: 14px;
+    /* Più grande del resto del testo */
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #00ccff;
-    /* Colore di evidenza per il nome del treno */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    /* Aggiungi un'ombra al testo */
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 15px;
+    /* Distanza tra titolo e i gruppi dei treni */
+    font-family: 'Roboto Mono', monospace;
+    /* Usa Roboto Mono */
 }
 
-.train-details {
+/* Wrapper principale */
+.train-wrapper {
+    background-color: #111111;
+    /* Sfondo principale */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Contenitore per le informazioni sui treni */
+.train-info {
+    background-color: #222222;
+    /* Sfondo delle info dei treni */
+    padding: 10px;
+    margin-bottom: 5px;
+    /* Distanza tra i vari gruppi di treni */
+    border-radius: 8px;
+    font-family: 'Roboto Mono', monospace;
+    /* Font Roboto Mono */
+    color: #ffffff;
+}
+
+/* Nome del treno (es. S10, RE, ecc.) */
+.train-name {
+    color: #B80505;
+    /* Rosso indicato */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Orari di partenza e arrivo sulla stessa linea */
+.schedules {
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    /* Linea separatrice semi-trasparente */
+    align-items: center;
+    color: #ffffff;
+    font-size: 12px;
 }
 
-.station {
-    width: 45%;
-    font-size: 1.2em;
+/* Stile per i ritardi */
+.delay {
+    color: #B80505;
+    /* Rosso per i ritardi */
+    font-style: italic;
+    /* Corsivo per i ritardi */
 }
 
-.label {
-    font-weight: bold;
-    color: #ffcc00;
-    /* Colore per le etichette per farle risaltare */
-}
-
+/* Linea separatrice */
 hr {
     border: 0;
     height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    /* Linea separatrice trasparente */
+    background-color: #B80505;
+    /* Rosso indicato */
     margin: 10px 0;
-}
-
-.train-info:hover {
-    background-color: rgba(70, 70, 70, 0.9);
-    /* Colore più chiaro al passaggio del mouse */
-    transition: background-color 0.3s ease;
-    /* Effetto di transizione morbida */
 }

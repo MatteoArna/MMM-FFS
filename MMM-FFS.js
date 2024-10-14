@@ -35,6 +35,15 @@ Module.register("MMM-FFS", {
       return wrapper;
     }
 
+    // Aggiungi un titolo che indichi da dove a dove va il treno
+    const title = document.createElement("div");
+    title.className = "train-title";
+
+    // Considera il primo treno per mostrare da dove a dove va il treno (puoi adattarlo se mostri più treni)
+    const firstTrain = this.trainData[0];
+    title.innerHTML = `<h2><b>${firstTrain.from.station.name}</b> to <b>${firstTrain.to.station.name}</b></h2>`;
+    wrapper.appendChild(title);
+
     this.trainData.forEach(train => {
       const trainInfo = document.createElement("div");
       trainInfo.className = "train-info";
@@ -42,32 +51,24 @@ Module.register("MMM-FFS", {
       const departureTime = new Date(train.from.departure).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const arrivalTime = new Date(train.to.arrival).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const trainName = train.products[0];
-      const departureDelay = train.from.delay ? `${train.from.delay} min di ritardo` : "Nessun ritardo";
-      const arrivalDelay = train.to.delay ? `${train.to.delay} min di ritardo` : "Nessun ritardo";
+      const departureDelay = train.from.delay ? `<i class="delay">+ ${train.from.delay}</i>` : "";
+      const arrivalDelay = train.to.delay ? `<i class="delay">+ ${train.to.delay}</i>` : "";
 
       trainInfo.innerHTML = `
-        <div class="train-header">
-          <strong>${trainName}</strong>
+        <div class="train-name">
+            <strong>${trainName}</strong>
         </div>
-        <div class="train-details">
-          <div class="station">
-            <span class="label">Partenza:</span> ${train.from.station.name} <br>
-            <span class="label">Orario:</span> ${departureTime} <br>
-            <span class="label">Ritardo:</span> ${departureDelay}
-          </div>
-          <div class="station">
-            <span class="label">Arrivo:</span> ${train.to.station.name} <br>
-            <span class="label">Orario:</span> ${arrivalTime} <br>
-            <span class="label">Ritardo:</span> ${arrivalDelay}
-          </div>
+        <div class="schedules">
+            ${departureTime} ${departureDelay} ------> ${arrivalTime} ${arrivalDelay}
         </div>
-        <hr>
       `;
       wrapper.appendChild(trainInfo);
     });
 
     return wrapper;
   },
+
+
 
   socketNotificationReceived: function(notification, payload) {
     if (notification === "CONNECTIONS_RESULT") {
