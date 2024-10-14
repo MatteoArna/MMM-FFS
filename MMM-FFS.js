@@ -1,4 +1,4 @@
-Module.register("MMM-YourModule", {
+Module.register("MMM-FFS", {
   defaults: {
     from: "8575573",  // Stazione di partenza
     to: "8505380",    // Stazione di arrivo
