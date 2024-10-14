@@ -1,7 +1,7 @@
 /* Titolo del percorso (da dove a dove va il treno) */
 .train-title {
-    font-size: 14px;
-    /* Più grande del resto del testo */
+    font-size: 20px;
+    /* Ingrandito rispetto al precedente */
     font-weight: bold;
     color: #ffffff;
     text-align: center;
@@ -30,13 +30,17 @@
     font-family: 'Roboto Mono', monospace;
     /* Font Roboto Mono */
     color: #ffffff;
+    font-size: 18px;
+    /* Ingrandito rispetto al precedente */
 }
 
-/* Nome del treno (es. S10, RE, ecc.) */
+/* Nome del treno spostato a sinistra */
 .train-name {
     color: #B80505;
     /* Rosso indicato */
     font-weight: bold;
+    text-align: left;
+    /* Spostato a sinistra */
     margin-bottom: 5px;
 }
 
@@ -46,7 +50,8 @@
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 18px;
+    /* Ingrandito rispetto al precedente */
 }
 
 /* Stile per i ritardi */
