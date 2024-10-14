@@ -8,64 +8,57 @@
     color: #ffffff;
     /* Testo bianco */
     max-width: 350px;
-    /* Limita la larghezza */
+    /* Limita la larghezza per adattarsi bene */
     margin: 0 auto;
     /* Centra il modulo */
 }
 
+.train-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .train-header {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ff0000;
-    /* Linea rossa sotto l'intestazione */
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.header-left,
-.header-right {
-    flex: 1;
     text-align: center;
-}
-
-.train-info {
-    margin-bottom: 15px;
-    background-color: rgba(50, 50, 50, 0.8);
-    /* Scuro ma non troppo pesante */
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .train-details {
     display: flex;
     justify-content: space-between;
-    /* Partenza e arrivo allineati */
-    padding-top: 10px;
+    /* Centra gli orari di partenza e arrivo */
+    margin-top: 10px;
+    font-size: 1.2em;
 }
 
-.station {
-    width: 48%;
-    /* Mantiene le stazioni compatte */
+.time-section {
+    width: 45%;
+    text-align: center;
+}
+
+.delay-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
     font-size: 1em;
-}
-
-.departure,
-.arrival {
-    font-size: 1.1em;
-}
-
-.delay {
     color: #ff0000;
     /* Ritardo in rosso */
-    font-weight: bold;
 }
 
 hr {
     border: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
+    height: 2px;
+    background: #ff0000;
+    /* Linea rossa di separazione */
     margin: 10px 0;
+}
+
+.fa-train {
+    color: #ffffff;
+    font-size: 1.5em;
 }
