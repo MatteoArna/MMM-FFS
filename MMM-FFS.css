@@ -1,37 +1,67 @@
 .train-wrapper {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Sfondo semitrasparente */
+    border-radius: 10px;
+    /* Angoli arrotondati */
+    color: #ffffff;
+    /* Testo bianco */
+    max-width: 350px;
+    /* Limita la larghezza per adattarsi bene a una parte dello schermo */
+    margin: 0 auto;
+    /* Centra il modulo nella sua area */
 }
 
 .train-info {
-    margin-bottom: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: rgba(50, 50, 50, 0.8);
+    /* Sfondo scuro ma non troppo pesante */
+    border-radius: 8px;
+    /* Angoli arrotondati */
     padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    /* Ombra leggera */
 }
 
 .train-header {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 5px;
+    color: #00ccff;
+    /* Colore accento per il nome del treno */
 }
 
 .train-details {
     display: flex;
     justify-content: space-between;
+    /* Dividi equamente le stazioni */
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Linea separatrice sottile */
 }
 
 .station {
-    width: 45%;
+    width: 48%;
+    /* Mantiene le stazioni compatte, una a fianco dell'altra */
+    font-size: 1em;
 }
 
 .label {
     font-weight: bold;
+    color: #ffcc00;
+    /* Etichette accento in giallo */
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #ccc;
+    background: rgba(255, 255, 255, 0.2);
+    /* Linea sottile per la separazione */
     margin: 10px 0;
+}
+
+.train-info:last-child hr {
+    display: none;
+    /* Rimuovi la linea separatrice sotto l'ultimo elemento */
 }
