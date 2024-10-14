@@ -1,54 +1,65 @@
 .train-wrapper {
     font-family: "Roboto", Arial, sans-serif;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Sfondo semitrasparente */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Sfondo trasparente scuro */
     border-radius: 10px;
+    /* Angoli arrotondati */
     color: #ffffff;
     /* Testo bianco */
-    max-width: 350px;
-    /* Limita la larghezza per adattarsi bene */
-    margin: 0 auto;
+}
+
+.train-info {
+    margin-bottom: 15px;
+    background-color: rgba(50, 50, 50, 0.8);
+    /* Scuro ma con trasparenza per uniformarsi allo sfondo */
+    border-radius: 8px;
+    /* Angoli arrotondati */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Ombra per effetto flottante */
 }
 
 .train-header {
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.train-info {
-    background-color: rgba(50, 50, 50, 0.8);
-    /* Sfondo grigio scuro */
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    color: #00ccff;
+    /* Colore di evidenza per il nome del treno */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    /* Aggiungi un'ombra al testo */
 }
 
 .train-details {
     display: flex;
     justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Linea separatrice semi-trasparente */
+}
+
+.station {
+    width: 45%;
     font-size: 1.2em;
 }
 
-.time-section {
-    text-align: center;
-    flex: 1;
-}
-
-.delay {
-    color: #ff0000;
-    /* Ritardo in rosso */
+.label {
     font-weight: bold;
+    color: #ffcc00;
+    /* Colore per le etichette per farle risaltare */
 }
 
 hr {
     border: 0;
-    height: 2px;
-    background: #ff0000;
-    /* Linea rossa di separazione */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    /* Linea separatrice trasparente */
     margin: 10px 0;
+}
+
+.train-info:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    /* Colore più chiaro al passaggio del mouse */
+    transition: background-color 0.3s ease;
+    /* Effetto di transizione morbida */
 }
