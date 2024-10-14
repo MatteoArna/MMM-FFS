@@ -4,19 +4,11 @@
     background-color: rgba(0, 0, 0, 0.6);
     /* Sfondo semitrasparente */
     border-radius: 10px;
-    /* Angoli arrotondati */
     color: #ffffff;
     /* Testo bianco */
     max-width: 350px;
     /* Limita la larghezza per adattarsi bene */
     margin: 0 auto;
-    /* Centra il modulo */
-}
-
-.train-icon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
 }
 
 .train-header {
@@ -28,26 +20,29 @@
     color: #ffffff;
 }
 
+.train-info {
+    background-color: rgba(50, 50, 50, 0.8);
+    /* Sfondo grigio scuro */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .train-details {
     display: flex;
     justify-content: space-between;
-    /* Centra gli orari di partenza e arrivo */
-    margin-top: 10px;
     font-size: 1.2em;
 }
 
 .time-section {
-    width: 45%;
     text-align: center;
+    flex: 1;
 }
 
-.delay-section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    font-size: 1em;
+.delay {
     color: #ff0000;
     /* Ritardo in rosso */
+    font-weight: bold;
 }
 
 hr {
@@ -56,9 +51,4 @@ hr {
     background: #ff0000;
     /* Linea rossa di separazione */
     margin: 10px 0;
-}
-
-.fa-train {
-    color: #ffffff;
-    font-size: 1.5em;
 }
