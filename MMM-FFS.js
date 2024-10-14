@@ -1,7 +1,7 @@
 Module.register("MMM-FFS", {
   defaults: {
-    from: "8575573",  // Stazione di partenza (Mendrisio)
-    to: "8505380",    // Stazione di arrivo (Lugano),
+    from: "8575573",  // Stazione di partenza
+    to: "8505380",    // Stazione di arrivo
     refreshInterval: 5 * 60 * 1000  // Aggiornamento ogni 5 minuti
   },
 
@@ -12,7 +12,7 @@ Module.register("MMM-FFS", {
     });
     this.trainData = null;
 
-    // Imposta aggiornamento automatico ogni 5 minuti (o il valore specificato)
+    // Aggiorna i dati ogni 5 minuti
     const self = this;
     setInterval(function() {
       self.sendSocketNotification("GET_CONNECTIONS", {
@@ -23,15 +23,26 @@ Module.register("MMM-FFS", {
   },
 
   getStyles: function() {
-    return ["MMM-FFS.css"]; // Per aggiungere stili personalizzati
+    return ["MMM-FFS.css"]; // Stili personalizzati
   },
 
   getDom: function() {
     const wrapper = document.createElement("div");
     wrapper.className = "train-wrapper";
 
+    // Intestazione "Partenza" e "Arrivo"
+    const header = document.createElement("div");
+    header.className = "train-header";
+    header.innerHTML = `
+      <div class="header">
+        <span class="header-left">Partenza</span>
+        <span class="header-right">Arrivo</span>
+      </div>
+    `;
+    wrapper.appendChild(header);
+
     if (!this.trainData) {
-      wrapper.innerHTML = "Caricamento...";
+      wrapper.innerHTML += "Caricamento...";
       return wrapper;
     }
 
@@ -42,23 +53,20 @@ Module.register("MMM-FFS", {
       const departureTime = new Date(train.from.departure).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const arrivalTime = new Date(train.to.arrival).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const trainName = train.products[0];
-      const departureDelay = train.from.delay ? `${train.from.delay} min di ritardo` : "Nessun ritardo";
-      const arrivalDelay = train.to.delay ? `${train.to.delay} min di ritardo` : "Nessun ritardo";
+      
+      // Gestione dei ritardi
+      const departureDelay = train.from.delay ? `+${train.from.delay} min` : "";
+      const arrivalDelay = train.to.delay ? `+${train.to.delay} min` : "";
 
       trainInfo.innerHTML = `
-        <div class="train-header">
-          <strong>${trainName}</strong>
-        </div>
         <div class="train-details">
-          <div class="station">
-            <span class="label">Partenza:</span> ${train.from.station.name} <br>
-            <span class="label">Orario:</span> ${departureTime} <br>
-            <span class="label">Ritardo:</span> ${departureDelay}
+          <div class="station departure">
+            ${train.from.station.name} <br>
+            ${departureTime} ${departureDelay ? `<span class="delay">${departureDelay}</span>` : ""}
           </div>
-          <div class="station">
-            <span class="label">Arrivo:</span> ${train.to.station.name} <br>
-            <span class="label">Orario:</span> ${arrivalTime} <br>
-            <span class="label">Ritardo:</span> ${arrivalDelay}
+          <div class="station arrival">
+            ${train.to.station.name} <br>
+            ${arrivalTime} ${arrivalDelay ? `<span class="delay">${arrivalDelay}</span>` : ""}
           </div>
         </div>
         <hr>
